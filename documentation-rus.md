@@ -45,7 +45,7 @@ id | `<string> id` | Идентификатор подложки.
 options | `<object>` | Опции заданные при добавлении подложки.
 
 При добавлении подложки `add(<string> id, <options> options? )` можно задать список слоев подложки через атрибут:
-options.layers = `<ILayer[]> | []`
+options.layers = `<ILayer[]>`
 
-При использовании контролов слоев на основе `L.Control.Layers` совместно с gmxBaseLayersManager
+При использовании контролов слоев на основе [L.Control.Layers](http://leafletjs.com/reference.html#control-layers) совместно с gmxBaseLayersManager
 для синхронизации изменений можно воспользоваться событиями gmxBaseLayersManager.
