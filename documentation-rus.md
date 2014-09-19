@@ -41,8 +41,8 @@ options.layers = `<ILayer[]> | []`
 
 | Type | Property | Description
 | --- | --- | ---
-| onAdd | `event<BaseLayer>` | Добавлена подложка.
-| onRemove | `event<BaseLayer>` | Удалена подложка.
-| onActiveChanged | `event<string[]`> | Изменен список активных подложек.
-| onSetCurrent | `event<BaseLayer>` | Изменена текущая подложка.
-| onLayerChange | `event<BaseLayer>` | Произошло изменение в списке слоев подложки.
+| onAdd | `<BaseLayer>` | Добавлена подложка.
+| onRemove | `<BaseLayer>` | Удалена подложка.
+| onActiveChanged | `<string[]`> | Изменен список активных подложек.
+| onSetCurrent | `<BaseLayer>` | Изменена текущая подложка.
+| onLayerChange | `<BaseLayer>` | Произошло изменение в списке слоев подложки.
