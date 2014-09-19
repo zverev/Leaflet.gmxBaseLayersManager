@@ -3,6 +3,9 @@ BaseLayers manager
 
 Plugin for BaseLayers.
 
+Documentation is available in separate file ([Russian version](documentation-rus.md)).
+
+
 ## Demos
 
 - [Test BaseLayers manager &rarr;](http://originalsin.github.io/Leaflet.gmxBaseLayersManager/examples/BaseLayerManager.html)
