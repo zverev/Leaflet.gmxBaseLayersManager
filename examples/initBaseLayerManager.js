@@ -41,7 +41,7 @@ var initBaseLayersManager = function (attr) {
     }
     var getInfo = function(type) {
         return {
-            type: typeMercator,
+            //type: typeMercator,
             osmURL: getURL(type),
             maxZoom: 18,
             gmxCopyright: getCopyright2()
