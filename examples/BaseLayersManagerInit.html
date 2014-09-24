@@ -48,7 +48,7 @@
 	<div id="map"></div>
     <div id="infoPanel">
         <span id="info">
-            Test for init BaseLayersManager
+            Test init BaseLayersManager with L.control.gmxLayers
         </span>
     </div>
 
@@ -65,12 +65,11 @@
         myLayersControl.addTo(map);
         //window.language = 'eng';
         var initAttr = {
-            activeIDs: ['satellite','relief', 'outline', 'grey', '2GIS', 'osm_spring', 'osm_summer', 'osm_autumn', 'osm_winter', 'osm_night', 'OSMHybrid', 'osm', 'rumap', 'hybrid'],
+            activeIDs: ['rumap', 'hybrid', 'satellite', 'osm', 'relief', 'outline', 'grey', '2GIS', 'osm_spring', 'osm_summer', 'osm_autumn', 'osm_winter', 'osm_night', 'OSMHybrid'],
             currentID: 'rumap',
             apiKey: window.apiKey || 'U92596WMIH',
             hostName: 'maps.kosmosnimki.ru',
-            mapID: '1D30C72D02914C5FB90D1D448159CAB6',
-            layersControl: myLayersControl
+            mapID: '1D30C72D02914C5FB90D1D448159CAB6'
         };
         if ('_initBaseLayersManager' in map) map._initBaseLayersManager(initAttr);
 	</script>

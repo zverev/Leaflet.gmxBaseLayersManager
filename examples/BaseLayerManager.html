@@ -8,10 +8,6 @@
 
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-<!--
-    <link rel="stylesheet" href="http://scanex.github.io/gmxControls/src/css/L.Control.gmxLayers.css" />
-	<script src="http://scanex.github.io/gmxControls/src/js/L.Control.gmxLayers.js"></script>
--->
 
 	<script src="http://originalsin.github.io/Leaflet.TileLayer.Mercator/src/TileLayer.Mercator.js"></script>
 	<script src="../src/gmxBaseLayersManager.js"></script>
@@ -54,7 +50,7 @@
 			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
 		});
 		var map = new L.Map('map', {
-            layers: [osm],
+            layers: [],
             center: new L.LatLng(60.025308, 29.657592),
             zoom: 9
         });
@@ -73,18 +69,18 @@
             }, {
             }, {collapsed: false}).addTo(map);
 
+        blm.add('osm', {
+            layers: [
+                osm
+            ]
+        });
         blm.add('rumap', {
-            rus: 'Карта',
-            eng: 'Map',
             layers: [
                 rumap
             ]
         });
         blm.setActiveIDs(['osm', 'rumap']);
         blm.setCurrentID('rumap');
-
-//console.log('map._gmxBaseLayersManager', blm.getActiveIDs(), blm);
-
 	</script>
 </body>
 </html>

@@ -23,13 +23,13 @@ var gmxBaseLayersManager = L.Class.extend({
         this._baseLayer = L.LayerGroup.extend({
             addLayer: function(layer) {
                 L.LayerGroup.prototype.addLayer.call(this, layer);
-                _this.fire('layerschange', this);
+                _this.fire('baselayerlayerschange', this);
                 return true;
             },
 
             removeLayer: function(layer) {
                 L.LayerGroup.prototype.removeLayer.call(this, layer);
-                _this.fire('layerschange', this);
+                _this.fire('baselayerlayerschange', this);
             }
         });
         // map.on('baselayerchange', function(ev) {
@@ -103,7 +103,7 @@ var gmxBaseLayersManager = L.Class.extend({
     */
     setActiveIDs: function(arr) {
         this._activeIDs = arr;
-        this.fire('baselayersactiveids', this._activeIDs);
+        this.fire('baselayeractiveids', this._activeIDs);
         return true;
     },
     /** Add active BaseLayer key
@@ -126,7 +126,7 @@ var gmxBaseLayersManager = L.Class.extend({
         } else {
             this._activeIDs.splice(index, 0, id);
         }
-        this.fire('baselayersactiveids', this._activeIDs);
+        this.fire('baselayeractiveids', this._activeIDs);
         return index;
     },
     /** Check BaseLayer active status
