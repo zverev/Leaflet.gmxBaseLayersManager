@@ -9,6 +9,7 @@ Documentation is available in separate file ([Russian version](documentation-rus
 ## Demos
 
 - [Test BaseLayers manager &rarr;](http://originalsin.github.io/Leaflet.gmxBaseLayersManager/examples/BaseLayerManager.html)
+- [Init Gemixer BaseLayers &rarr;](http://originalsin.github.io/Leaflet.gmxBaseLayersManager/examples/BaseLayersManagerInit.html)
 
 
 ## Basic Usage
