@@ -41,8 +41,9 @@ var initBaseLayersManager = function (attr) {
 
     var baseLayers = {
         OSM: {
+            icon: 'icons/basemap_osm_' + (lang === 'rus' ? 'ru' : '-eng') + '.png',
             layers:[
-                L.tileLayer(getURL('kosmo'), {
+                L.tileLayer('http://{s}.tile.osm.kosmosnimki.ru/kosmo' + (lang === 'rus' ? '' : '-en') + '/{z}/{x}/{y}.png', {
                     maxZoom: 18,
                     gmxCopyright: getCopyright2()
                 })
@@ -59,6 +60,7 @@ var initBaseLayersManager = function (attr) {
         },
 
         relief: { rus: 'Рельеф', eng: 'Relief',
+            icon: 'icons/basemap_terrain.png',
             layers:[
                 L.tileLayer.Mercator(getURL('r'), {
                     maxZoom: 18,
@@ -72,6 +74,7 @@ var initBaseLayersManager = function (attr) {
             ]
         }
         ,outline: { rus: 'Контурная', eng: 'Outline',
+            icon: 'icons/basemap_contour.png',
             layers:[
                 L.tileLayer.Mercator(getURL('mo'), {
                     maxZoom: 18,
@@ -84,6 +87,7 @@ var initBaseLayersManager = function (attr) {
             ]
         }
         ,grey: { rus: 'Серая', eng: 'Grey',
+            icon: 'icons/basemap_grey.png',
             layers:[
                 L.tileLayer.Mercator(getURL('mg'), {
                     maxZoom: 18,
@@ -96,6 +100,7 @@ var initBaseLayersManager = function (attr) {
             ]
         }
         ,osm_spring: { rus: 'OSM Весна', eng: 'OSM Spring',
+            icon: 'icons/basemap_osm_spring.png',
             layers:[
                 L.tileLayer(getURL('spring'), {
                     maxZoom: 18,
@@ -104,6 +109,7 @@ var initBaseLayersManager = function (attr) {
             ]
         }
         ,osm_summer: { rus: 'OSM Лето', eng: 'OSM Summer',
+            icon: 'icons/basemap_osm_summer.png',
             layers:[
                 L.tileLayer(getURL('summer'), {
                     maxZoom: 18,
@@ -112,6 +118,7 @@ var initBaseLayersManager = function (attr) {
             ]
         }
         ,osm_autumn: { rus: 'OSM Осень', eng: 'OSM Autumn',
+            icon: 'icons/basemap_osm_autumn.png',
             layers:[
                 L.tileLayer(getURL('autumn'), {
                     maxZoom: 18,
@@ -120,6 +127,7 @@ var initBaseLayersManager = function (attr) {
             ]
         }
         ,osm_winter: { rus: 'OSM Зима', eng: 'OSM Winter',
+            icon: 'icons/basemap_osm_winter.png',
             layers:[
                 L.tileLayer(getURL('winter'), {
                     maxZoom: 18,
@@ -128,6 +136,7 @@ var initBaseLayersManager = function (attr) {
             ]
         }
         ,osm_night: { rus: 'OSM Ночь', eng: 'OSM Night',
+            icon: 'icons/basemap_night.png',
             layers:[
                 L.tileLayer(getURL('night'), {
                     maxZoom: 18,
@@ -149,10 +158,11 @@ var initBaseLayersManager = function (attr) {
     }
 
     var layersGMX = [
-        {mapID: mapID, layerID: 'C9458F2DCB754CEEACC54216C7D1EB0A', type: 'satellite', rus: 'Снимки', eng: 'Satellite'}  // satellite
+        {mapID: mapID, layerID: 'C9458F2DCB754CEEACC54216C7D1EB0A', type: 'satellite', rus: 'Снимки', eng: 'Satellite', icon: 'icons/basemap_satellite.png' }  // satellite
     ];
     if (lang === 'rus') {
         baseLayers.rumap = { rus: 'Карта', eng: 'Map',
+            icon: 'icons/basemap_rumap.png',
             layers:[
                 L.tileLayer.Mercator(getURL('m'), {
                     maxZoom: 19,
@@ -165,7 +175,7 @@ var initBaseLayersManager = function (attr) {
             ]
         };
     } else {
-        layersGMX.push({mapID: mapID, layerID: '5269E524341E4E7DB9D447C968B20A2C', type: 'rumap', rus: 'Карта', eng: 'Map'});     // rumap
+        layersGMX.push({mapID: mapID, layerID: '5269E524341E4E7DB9D447C968B20A2C', type: 'rumap', rus: 'Карта', eng: 'Map', icon: 'icons/basemap_rumap.png'});     // rumap
         layersGMX.push({mapID: mapID, layerID: 'BCCCE2BDC9BF417DACF27BB4D481FAD9', type: 'hybrid', rus: 'Гибрид', eng: 'Hybrid'});    // hybrid
     }
     L.gmx.loadLayers(layersGMX).then(function() {
@@ -188,6 +198,7 @@ var initBaseLayersManager = function (attr) {
                 baseLayers['hybrid'] = {
                     rus: 'Гибрид',
                     eng: 'Hybrid',
+                    icon: 'icons/basemap_hybrid.png',
                     layers: [
                         layerByLayerID[info.mapID][info.layerID]        // satellite
                         ,
@@ -206,6 +217,7 @@ var initBaseLayersManager = function (attr) {
             baseLayers[type] = {
                 rus: info.rus,
                 eng: info.eng,
+                icon: info.icon,
                 layers:[layerByLayerID[info.mapID][info.layerID]]
             };
         }
